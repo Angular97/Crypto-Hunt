@@ -19,6 +19,10 @@ Crypto Hunt is a kind of Application where users can fetch the current update or
     <li><a href="https://firebase.google.com/" target="_blank">FireBase</a></li>
 </ul>
 
+## Live Project
+<a href="https://cryptoo-hunt.netlify.app/" target="_blank">CLICK HERE</a>
+ 
+
 ## Install and Run :
 - Clone the repository or download the zip folder.
 - Extract the zip folder.
