@@ -7,7 +7,7 @@ import CoinInfo from "../Components/CoinInfo";
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import { db } from "../firebase";
-import { numberWithCommas } from "../Components/Banner/Cointable";
+import { numberwithcommas } from "../Components/Banner/Carousel";
 function CoinPage() {
   const { id } = useParams();
   const [coin, setCoin] = useState();
@@ -112,6 +112,7 @@ function CoinPage() {
             padding: 25,
             paddingTop: 10,
             width: "100%",
+            alignItems: "left",
           }}
         >
           <span style={{ display: "flex" }}>
@@ -153,7 +154,7 @@ function CoinPage() {
                 }}
               >
                 {symbol}{" "}
-                {numberWithCommas(
+                {numberwithcommas(
                   coin?.market_data.current_price[currency.toLowerCase()]
                 )}{" "}
               </Typography>
@@ -178,7 +179,7 @@ function CoinPage() {
                 }}
               >
                 {symbol}{" "}
-                {numberWithCommas(
+                {numberwithcommas(
                   coin?.market_data.high_24h[currency.toLowerCase()]
                 )}
               </Typography>

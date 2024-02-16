@@ -7,7 +7,7 @@ import { fontWeight } from "@mui/system";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { AiFillDelete } from "react-icons/ai";
-import { numberWithCommas } from "../Banner/Cointable";
+import { numberwithcommas } from "../Banner/Carousel";
 import { doc, setDoc } from "firebase/firestore";
 
 export default function UserSidebar() {
@@ -164,7 +164,7 @@ export default function UserSidebar() {
 
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}{" "}
-                            {numberWithCommas(coin.current_price.toFixed(2))}
+                            {numberwithcommas(coin.current_price.toFixed(2))}
                             <AiFillDelete
                               style={{ cursor: "pointer", color: "white" }}
                               fontSize="16"

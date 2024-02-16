@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../CryptoContext";
 
-export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export function numberwithcommas(number) {
+  return new Intl.NumberFormat("en-IN", {
+    minimumFractionDigits: 2,
+  }).format(number);
 }
+
 const Carousel = () => {
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = CryptoState();
@@ -17,7 +20,7 @@ const Carousel = () => {
     //   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h"
     // );
     // const val = await response.json();
-    // console.log(val);
+    console.log(data);
     setTrending(data);
   };
 
@@ -61,7 +64,7 @@ const Carousel = () => {
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
-          {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
+          {symbol} {numberwithcommas(coin?.current_price.toFixed(2))}
         </span>
       </Link>
     );

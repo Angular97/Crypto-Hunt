@@ -5,9 +5,9 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { CoinList } from "./config/api";
 import { db, auth } from "./firebase";
 
-const Crypto = createContext();
+const CryptoContext = createContext();
 
-const CryptoContext = ({ children }) => {
+const CryptoContextProvider = ({ children }) => {
   const [currency, setCurrency] = useState("INR");
   const [symbol, setSymbol] = useState("₹");
   const [coins, setCoins] = useState([]);
@@ -57,7 +57,7 @@ const CryptoContext = ({ children }) => {
   }, [currency]);
 
   return (
-    <Crypto.Provider
+    <CryptoContext.Provider
       value={{
         currency,
         setCurrency,
@@ -72,12 +72,12 @@ const CryptoContext = ({ children }) => {
       }}
     >
       {children}
-    </Crypto.Provider>
+    </CryptoContext.Provider>
   );
 };
 
-export default CryptoContext;
+export default CryptoContextProvider;
 
 export const CryptoState = () => {
-  return useContext(Crypto);
+  return useContext(CryptoContext);
 };

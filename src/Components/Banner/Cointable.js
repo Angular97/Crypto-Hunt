@@ -16,10 +16,7 @@ import React, { useEffect, useState } from "react";
 import { CoinList } from "../../config/api";
 import { CryptoState } from "../../CryptoContext";
 import { useNavigate } from "react-router-dom";
-
-export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+import { numberwithcommas } from "./Carousel";
 
 const Cointable = () => {
   const history = useNavigate();
@@ -62,7 +59,13 @@ const Cointable = () => {
           <Table>
             <TableHead style={{ backgroundColor: "#361848" }}>
               <TableRow>
-                {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
+                {[
+                  "Coin",
+                  "Price",
+                  "24h Change",
+                  "Market Cap",
+                  "Market Cap Rank",
+                ].map((head) => (
                   <TableCell
                     style={{
                       backgroundColor: "#361848",
@@ -130,7 +133,7 @@ const Cointable = () => {
                         style={{ color: "#361848", fontWeight: "bold" }}
                       >
                         {symbol}{" "}
-                        {numberWithCommas(row.current_price.toFixed(2))}
+                        {numberwithcommas(row.current_price.toFixed(2))}
                       </TableCell>
                       <TableCell
                         align="right"
@@ -147,9 +150,15 @@ const Cointable = () => {
                         style={{ color: "#361848", fontWeight: "bold" }}
                       >
                         {symbol}{" "}
-                        {numberWithCommas(
+                        {numberwithcommas(
                           row.market_cap.toString().slice(0, -6)
                         )}
+                      </TableCell>
+                      <TableCell
+                        align="center"
+                        style={{ color: "#361848", fontWeight: "bold" }}
+                      >
+                        {row.market_cap_rank.toString()}
                       </TableCell>
                     </TableRow>
                   );
