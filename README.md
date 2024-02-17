@@ -20,7 +20,7 @@ Crypto Hunt is a kind of Application where users can fetch the current update or
 </ul>
 
 ## Live Project
-<a href="https://cryptoo-hunt.netlify.app/" target="_blank">CLICK HERE</a>
+<a href="https://cryptoohunt.netlify.app/" target="_blank">CLICK HERE</a>
  
 
 ## Install and Run :
