@@ -4,9 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { HistoricalChart } from "../config/api";
 import { CryptoState } from "../CryptoContext";
-import SelectButton from "../Components/Banner/SelectButton";
+import SelectButton from "../Components/SelectButton";
 import { chartDays } from "../config/data";
-import { Chart as chartjs } from "chart.js/auto";
 
 const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
